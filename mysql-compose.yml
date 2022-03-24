@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  mysql:
+    image: mysql:8
+    ports:
+      - 3306:3306
+    volumes:
+      - /home/$USER/docker-compose/mysql/volume:/var/lib/mysql/data
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootpassword
+      - MYSQL_PASSWORD=userpassword
+      - MYSQL_USER=username
+      - MYSQL_DATABASE=db_name
+    networks:
+      - mysql-network
+
+networks:
+  mysql-network:
+    driver: brigde
