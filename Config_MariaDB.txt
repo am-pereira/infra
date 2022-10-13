@@ -1,0 +1,22 @@
+Depois de instalar o MariaDB/MySQL
+
+# mysql_secure_installation
+Configure as políticas básicas de segurança
+
+# mysql -u root
+
+# CREATE DATABASE nome_do_banco CHARACTER SET utf8 COLLATE utf8_bin;
+
+# CREATE USER 'nome_do_usuario'@'ip_da_maquina' IDENTIFIED BY 'senha_do_usuario';
+
+# GRANT ALL PRIVILEGES ON nome_do_banco.* TO 'nome_do_usuario'@'ip_da_maquina';
+
+# FLUSH PRIVILEGES;
+
+
+
+Liberando acesso remoto ao servidor
+# vim /etc/mysql/mariadb.conf.d/50-server.cnf
+
+Comentar a linha:
+bind-address = 127.0.01
